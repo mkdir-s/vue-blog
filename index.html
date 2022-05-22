@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue project</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+    <div class="container" id="app">
+        <form class="form" @submit.prevent>
+            <h2 class="form__title">Создание поста</h4>
+            <input class="form__input" type="text" placeholder="Название поста" :value="title" @input="title = $event.target.value">
+            <input class="form__input" type="text" placeholder="Описание поста" :value="body" @input="body = $event.target.value">
+            <button class="form__button" @click="createPost">Опубликовать пост</button>
+        </form>
+        <div class="post" v-for="post in posts">
+            <h3 class="post__title">{{ post.title }}</h3>
+            <p class="post__descr">{{ post.body }}</p>
+        </div>
+    </div>
+    
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+</body>
+</html>
